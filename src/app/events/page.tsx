@@ -26,7 +26,7 @@ export default async function Events() {
   const posts = await client.fetch<QueriedEvent[]>(EVENTS_QUERY);
   return (
     <div>
-      <h2 className="w-full text-center">Events</h2>
+      <h2 className="w-full text-center">Programm</h2>
       <div className="flex flex-col gap-4 mt-8">
         {posts.length === 0 && <p>No events found.</p>}
         {posts.map((event, index) => (

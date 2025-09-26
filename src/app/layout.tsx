@@ -19,7 +19,7 @@ const doto = Doto({
 });
 
 export const metadata: Metadata = {
-  title: "Robin Kehr",
+  title: "KritOWo",
   description: "Design me to the moon and let me code among the stars",
 };
 

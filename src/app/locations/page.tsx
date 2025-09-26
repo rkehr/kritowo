@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import { defineQuery } from "next-sanity";
 
 export const metadata: Metadata = {
-  title: "Locations | KritOWo",
+  title: "Veranstaltungsorte | KritOWo",
 };
 
 const LOCATIONS_QUERY = defineQuery(`
@@ -26,7 +26,7 @@ export default async function Locations() {
   const posts = await client.fetch<QueriedLocation[]>(LOCATIONS_QUERY);
   return (
     <div>
-      <h2 className="w-full text-center">Locations</h2>
+      <h2 className="w-full text-center">Veranstaltungsorte</h2>
       <div className="flex flex-col gap-4 mt-8">
         {posts.length === 0 && <p>No locations found.</p>}
         {posts.map((location, index) => (

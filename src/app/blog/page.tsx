@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import { defineQuery } from "next-sanity";
 
 export const metadata: Metadata = {
-  title: "Blog | Robin Kehr",
+  title: "Blog | KritOWo",
 };
 
 // GROQ query to fetch all posts
@@ -32,10 +32,7 @@ export default async function Blog() {
       {posts.length === 0 && <p>No posts found.</p>}
       <div className="flex flex-col gap-4 mt-8">
         {posts.map((post, index) => (
-          <PostPreview
-            key={index}
-            post={post}
-          />
+          <PostPreview key={index} post={post} />
         ))}
       </div>
     </div>
