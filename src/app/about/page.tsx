@@ -3,6 +3,12 @@ import { defineQuery, PortableText } from "next-sanity";
 import { Metadata } from "next";
 import { TextBlock } from "@/sanity/sanity.types";
 
+export const metadata: Metadata = {
+  title: "Selbstverständnis | KritOWo",
+  description:
+    "Die Kritischen Orientierungswochen 2025 and der Humboldt-Universität zu Berlin",
+};
+
 const TEXT_BLOCK_QUERY = defineQuery(`
 *[_type == "textBlock" && slug.current == "about"][0]{
   _id,

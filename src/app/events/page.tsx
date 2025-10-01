@@ -9,6 +9,8 @@ import { Fragment } from "react";
 
 export const metadata: Metadata = {
   title: "Programm | KritOWo",
+  description:
+    "Die Kritischen Orientierungswochen 2025 and der Humboldt-Universität zu Berlin",
 };
 
 const EVENTS_QUERY = defineQuery(`

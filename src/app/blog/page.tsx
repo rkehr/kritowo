@@ -6,6 +6,8 @@ import { defineQuery } from "next-sanity";
 
 export const metadata: Metadata = {
   title: "Blog | KritOWo",
+  description:
+    "Die Kritischen Orientierungswochen 2025 and der Humboldt-Universität zu Berlin",
 };
 
 // GROQ query to fetch all posts

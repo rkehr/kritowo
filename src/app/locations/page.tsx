@@ -6,6 +6,8 @@ import { defineQuery } from "next-sanity";
 
 export const metadata: Metadata = {
   title: "Veranstaltungsorte | KritOWo",
+  description:
+    "Die Kritischen Orientierungswochen 2025 and der Humboldt-Universität zu Berlin",
 };
 
 const LOCATIONS_QUERY = defineQuery(`
