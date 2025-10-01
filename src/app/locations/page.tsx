@@ -14,19 +14,32 @@ const LOCATIONS_QUERY = defineQuery(`
   slug,
   image,
   ellipsis,
+  street,
+  nr,
+  postcode,
+  city,
+  coordinates,
   _createdAt,
 }`);
 
 export type QueriedLocation = Pick<
   Location,
-  "title" | "slug" | "image" | "_createdAt"
+  | "title"
+  | "slug"
+  | "image"
+  | "street"
+  | "postcode"
+  | "nr"
+  | "city"
+  | "coordinates"
+  | "_createdAt"
 >;
 
 export default async function Locations() {
   const posts = await client.fetch<QueriedLocation[]>(LOCATIONS_QUERY);
   return (
     <div>
-      <h2 className="w-full text-center">Veranstaltungsorte</h2>
+      <h2 className="w-full text-center sr-only">Veranstaltungsorte</h2>
       <div className="flex flex-col gap-4 mt-8">
         {posts.length === 0 && <p>No locations found.</p>}
         {posts.map((location, index) => (

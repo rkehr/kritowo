@@ -11,7 +11,7 @@ export default function Menu(props: MenuProps) {
   return (
     <div
       className={`gap-8 sticky justify-between items-baseline 
-      p-4 md:relative md:p-0 transition-all duration-600 ${
+      p-4 md:relative md:p-0 transition-all duration-600 flex-col md:flex-row ${
         showOnMobile ? "flex md:hidden" : "hidden md:flex"
       }`}
     >
@@ -39,5 +39,5 @@ const links = [
   { text: "Programm", href: "/events" },
   { text: "Veranstaltungsorte", href: "/locations" },
   { text: "Blog", href: "/blog" },
-  { text: "Selbstverständis", href: "/about" },
+  { text: "Selbstverständnis", href: "/about" },
 ];

@@ -28,8 +28,8 @@ export default async function Blog() {
 
   return (
     <div>
-      <h2 className="w-full text-center">Blog</h2>
-      {posts.length === 0 && <p>No posts found.</p>}
+      <h2 className="w-full text-center sr-only">Blog</h2>
+      {posts.length === 0 && <p>hier is noch nix :(</p>}
       <div className="flex flex-col gap-4 mt-8">
         {posts.map((post, index) => (
           <PostPreview key={index} post={post} />

@@ -1,64 +1,76 @@
 import { urlFor } from "@/components/LocationPreview";
+import MapWrapper from "@/components/MapWrapper";
 import { client } from "@/sanity/lib/client";
-import { Project } from "@/sanity/sanity.types";
+import { Location } from "@/sanity/sanity.types";
 import { Metadata } from "next";
 import { defineQuery, PortableText } from "next-sanity";
 
-interface ProjectPageProps {
+interface LocationPageProps {
   params: {
     slug: string;
   };
 }
 
-const PROJECT_QUERY = defineQuery(`
+const LOCATION_QUERY = defineQuery(`
 *[_type == "location" && slug.current == $slug][0]{
   title,
   slug,
   image,
   content,
+  coordinates,
+  street,
+  city,
+  postcode,
+  nr,
   _createdAt,
 }`);
 
 export async function generateMetadata({
   params,
-}: ProjectPageProps): Promise<Metadata> {
-  const project = await client.fetch<Project | null>(PROJECT_QUERY, {
+}: LocationPageProps): Promise<Metadata> {
+  const location = await client.fetch<Location | null>(LOCATION_QUERY, {
     slug: params.slug,
   });
   return {
-    title: project?.title ?? "Project",
-    description: project?.ellipsis ?? "Project details",
+    title: location?.title ?? "Veranstaltungsort",
+    description: "Veranstaltungsortdetails",
   };
 }
 
-export default async function ProjectPage({ params }: ProjectPageProps) {
+export default async function LocationPage({ params }: LocationPageProps) {
   const { slug } = params;
 
-  const project = await client.fetch<Project | null>(PROJECT_QUERY, { slug });
+  const location = await client.fetch<Location | null>(LOCATION_QUERY, {
+    slug,
+  });
 
-  if (!project) {
-    return <p>Project not found.</p>;
+  if (!location) {
+    return <p>Location not found.</p>;
   }
+  const { image, title, content, coordinates } = location;
 
   return (
-    <div className="space-y-4">
-      <h1 className="text-4xl font-heading">{project.title}</h1>
-      {project.image && (
+    <div className="space-y-4 w-full">
+      {image && (
         <img
-          src={urlFor(project.image).url()}
-          alt={project.title ?? ""}
+          src={urlFor(image).url()}
+          alt={title ?? ""}
           width={800}
           height={450}
           className="rounded-md"
         />
       )}
-
-      {project.content?.map((block, index) => (
+      <h1 className="text-4xl font-heading">{title}</h1>
+      <div>
+        {location.street} {location.nr}
+      </div>
+      <div>
+        {location.postcode} {location.city}
+      </div>
+      {content?.map((block, index) => (
         <PortableText key={index} value={block} />
       ))}
-      <p className="text-sm text-muted">
-        Created at: {new Date(project._createdAt).toLocaleDateString()}
-      </p>
+      {coordinates && <MapWrapper position={coordinates} />}
     </div>
   );
 }

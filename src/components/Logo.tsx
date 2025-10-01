@@ -4,16 +4,14 @@ import { usePathname } from "next/navigation";
 
 export default function Logo() {
   const pathname = usePathname();
-  const isHome = pathname === "/";
 
   return (
-    <Link href="/" aria-label="Home">
-      <h1
-        className={`font-black text-underline transition-all duration-600 ${
-          isHome ? "text-4xl" : "text-2xl"
-        }`}
-      >
-        Kritische Orientierungswochen
+    <Link href="/" aria-label="Home" className="relative">
+      <h1 className="font-black text-underline transition-all duration-600 uppercase whitespace-pre backdrop-blur-lg italic text-2xl">
+        {`
+    Kritische
+  Orientierungs
+wochen 4Ever`}
       </h1>
     </Link>
   );

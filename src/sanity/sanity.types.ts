@@ -13,6 +13,34 @@
  */
 
 // Source: schema.json
+export type SocialLink = {
+  _id: string
+  _type: 'socialLink'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  title?: string
+  link?: string
+}
+
+export type Language = {
+  _id: string
+  _type: 'language'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  title?: string
+}
+
+export type Format = {
+  _id: string
+  _type: 'format'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  title?: string
+}
+
 export type TextBlock = {
   _id: string
   _type: 'textBlock'
@@ -215,17 +243,13 @@ export type Event = {
   _updatedAt: string
   _rev: string
   title?: string
-  format?: Array<
-    | 'Vortrag'
-    | 'Buchvorstellung'
-    | 'Diskussion'
-    | 'Vorstellung'
-    | 'Kennenlernen'
-    | 'Onboarding'
-    | 'Workshop'
-    | 'Filmvorf\xFChrung'
-    | 'Sonstiges'
-  >
+  format?: Array<{
+    _ref: string
+    _type: 'reference'
+    _weak?: boolean
+    _key: string
+    [internalGroqTypeReferenceTo]?: 'format'
+  }>
   date?: string
   ellipsis?: string
   slug?: Slug
@@ -282,7 +306,13 @@ export type Event = {
   }
   room?: string
   speaker?: string
-  language?: Array<'Deutsch' | 'Englisch' | 'Franz\xF6sisch' | 'Arabisch'>
+  language?: Array<{
+    _ref: string
+    _type: 'reference'
+    _weak?: boolean
+    _key: string
+    [internalGroqTypeReferenceTo]?: 'language'
+  }>
   organisation?: string
 }
 
@@ -465,6 +495,9 @@ export type SanityAssetSourceData = {
 }
 
 export type AllSanitySchemaTypes =
+  | SocialLink
+  | Language
+  | Format
   | TextBlock
   | Project
   | Page

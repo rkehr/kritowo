@@ -5,29 +5,38 @@ import { client } from "@/sanity/lib/client";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { format } from "date-fns";
 import Link from "next/link";
+import MapWrapper from "./MapWrapper";
 
 interface LocationPreviewProps {
   location: QueriedLocation;
+  showMap?: boolean;
 }
 
 export default function LocationPreview(props: LocationPreviewProps) {
-  const { location } = props;
+  const { location, showMap } = props;
+  const { image, coordinates, nr, street, postcode, city, title, slug } =
+    location;
   return (
-    <Link href={`/locations/${location.slug?.current}`} className="block">
+    <Link href={`/locations/${slug?.current}`} className="block">
       <Card>
-        {location.image && (
+        {image && (
           <img
-            src={urlFor(location.image).width(1200).height(300).url()}
-            alt={location.title ?? ""}
+            src={urlFor(image).width(1200).height(300).url()}
+            alt={title ?? ""}
             className="w-full rounded-lg"
           />
         )}
         <CardHeader>
-          <h3>{location.title}</h3>
+          <h3>{title}</h3>
         </CardHeader>
         <CardContent>
-          <span>{location.ellipsis}...</span>
+          {street} {nr}
+          <br />
+          {postcode} {city}
         </CardContent>
+        {coordinates && showMap && (
+          <MapWrapper position={coordinates} height={200} />
+        )}
       </Card>
     </Link>
   );

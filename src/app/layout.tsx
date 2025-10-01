@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Doto, Faustina } from "next/font/google";
+import { Doto, Luxurious_Roman, Faustina, Coiny } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -12,9 +12,17 @@ const faustina = Faustina({
   display: "swap",
 });
 
-const doto = Doto({
+const luxuriousRoman = Luxurious_Roman({
   subsets: ["latin"],
-  variable: "--font-doto",
+  variable: "--font-luxurious-roman",
+  weight: ["400"],
+  display: "swap",
+});
+
+const coiny = Coiny({
+  subsets: ["latin"],
+  variable: "--font-coiny",
+  weight: ["400"],
   display: "swap",
 });
 
@@ -31,15 +39,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${doto.variable} ${faustina.variable} antialiased `}
+      className={`${luxuriousRoman.variable} ${coiny.variable} ${faustina.variable} antialiased `}
     >
-      <body className="font-body bg-background text-foreground flex flex-col justify-stretch h-screen overflow-auto">
+      <body className="font-body bg-background text-foreground flex flex-col justify-stretch h-screen overflow-auto relative w-screen overflow-x-hidden">
         <Header />
-        <div className="p-8 flex-grow max-w-4xl mx-auto">{children}</div>
+        <div className="p-8 flex-grow max-w-4xl mx-auto ">{children}</div>
         <Footer />
-        <div className="fixed bottom-0 left-0 right-0 backdrop-blur-md z-15">
-          <Menu showOnMobile />
-        </div>
       </body>
     </html>
   );
