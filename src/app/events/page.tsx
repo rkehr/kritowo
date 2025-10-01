@@ -55,7 +55,9 @@ export default async function Events() {
               {shouldShowDate && (
                 <div>
                   <div
-                    className="text-3xl font-bold mt-16 text-primary-foreground font-[coiny]"
+                    className={`text-3xl font-bold ${
+                      index === 0 ? "mt-4" : "mt-12"
+                    } text-primary-foreground font-[coiny]`}
                     key={index}
                   >
                     {dateString}
