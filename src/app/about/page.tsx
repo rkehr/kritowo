@@ -19,19 +19,6 @@ const TEXT_BLOCK_QUERY = defineQuery(`
 
 type QueriedTextBlock = Pick<TextBlock, "slug" | "title" | "content">;
 
-export async function generateMetadata(): Promise<Metadata> {
-  const textBlock = await client.fetch<QueriedTextBlock | null>(
-    TEXT_BLOCK_QUERY,
-  );
-  return {
-    title: textBlock?.title ?? "Welcome",
-    description:
-      textBlock?.content
-        ?.map((b) => b.children?.map((c) => c.text).join(" ") ?? "")
-        .join(" ") ?? "",
-  };
-}
-
 export default async function Home() {
   const textBlock = await client.fetch<QueriedTextBlock | null>(
     TEXT_BLOCK_QUERY,
