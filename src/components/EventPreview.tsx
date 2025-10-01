@@ -4,6 +4,7 @@ import { client } from "@/sanity/lib/client";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { format } from "date-fns";
 import Link from "next/link";
+import { de } from "date-fns/locale";
 
 interface EventPreviewProps {
   event: QueriedEvent;
@@ -24,7 +25,7 @@ export default function EventPreview(props: EventPreviewProps) {
         <div>
           <div className="mb-2 w-full">
             <span className="float-right mx-4 text-2xl font-bold text-primary-foreground font-[coiny] relative top-0.75">
-              {event.date && format(event.date, "HH:mm")}
+              {event.date && format(event.date, "HH:mm", { locale: de })}
             </span>
             <h3 className="break-words inline hyphens-auto">{event.title}</h3>
             <div className="clear-both" />
