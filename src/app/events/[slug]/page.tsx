@@ -3,6 +3,7 @@ import LocationPreview from "@/components/LocationPreview";
 import { client } from "@/sanity/lib/client";
 import { Event, Format, Language, Location } from "@/sanity/sanity.types";
 import { format } from "date-fns";
+import { formatInTimeZone } from "date-fns-tz";
 import { Metadata } from "next";
 import { defineQuery, PortableText } from "next-sanity";
 
@@ -58,7 +59,8 @@ export default async function EventPage({ params }: EventPageProps) {
       <h1 className="text-4xl font-heading">{event.title}</h1>
       <div className="flex justify-between items-baseline">
         <div className="text-3xl font-bold text-primary-foreground font-[coiny]">
-          {event.date && format(event.date, "dd.MM.yyyy HH:mm")}
+          {event.date &&
+            formatInTimeZone(event.date, "Europe/Berlin", "dd.MM.yyyy HH:mm")}
         </div>
         <div className="">
           {event.format?.map((format) => format.title).join(" | ")}

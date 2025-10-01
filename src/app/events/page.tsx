@@ -2,6 +2,7 @@ import EventPreview from "@/components/EventPreview";
 import { client } from "@/sanity/lib/client";
 import { Event } from "@/sanity/sanity.types";
 import { format } from "date-fns";
+import { formatInTimeZone } from "date-fns-tz";
 import { de } from "date-fns/locale";
 import { Metadata } from "next";
 import { defineQuery } from "next-sanity";
@@ -38,7 +39,9 @@ export default async function Events() {
         {posts.map((event, index) => {
           let shouldShowDate = false;
           const dateString = event.date
-            ? format(event.date, "dd.MM.", { locale: de })
+            ? formatInTimeZone(event.date, "Europe/Berlin", "dd.MM.", {
+                locale: de,
+              })
             : null;
           if (dateString === null || !event.date) {
             return <EventPreview key={index} event={event} />;
@@ -59,7 +62,9 @@ export default async function Events() {
                   </div>
                   {"\n"}
                   <div className="text-lg font-bold text-primary-foreground font-[coiny]">
-                    {format(event.date, "EEEE", { locale: de })}
+                    {formatInTimeZone(event.date, "Europe/Berlin", "EEEE", {
+                      locale: de,
+                    })}
                   </div>
                 </div>
               )}

@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader } from "./ui/card";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/lib/client";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import { format } from "date-fns";
+import { formatInTimeZone } from "date-fns-tz";
 import Link from "next/link";
 
 interface EventPreviewProps {
@@ -25,7 +25,11 @@ export default function EventPreview(props: EventPreviewProps) {
         <CardHeader>
           <div className="flex justify-between items-baseline mb-2">
             <h3>{event.title}</h3>
-            {format(event._createdAt, "dd. MMMM yyyy")}
+            {formatInTimeZone(
+              event._createdAt,
+              "Europe/Berlin",
+              "dd. MMMM yyyy",
+            )}
           </div>
         </CardHeader>
         <CardContent>
