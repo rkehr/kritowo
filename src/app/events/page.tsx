@@ -32,7 +32,7 @@ export default async function Events() {
   let lastDate: string | null = null;
   return (
     <div className="w-full">
-      <h2 className="w-full text-center sr-only hyphens-auto">Programm</h2>
+      <h2 className="text-sm sr-only hyphens-auto">Programm</h2>
       <div className="flex flex-col gap-8 w-full">
         {posts.length === 0 && <p>No events found.</p>}
         {posts.map((event, index) => {

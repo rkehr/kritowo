@@ -30,7 +30,7 @@ export default async function Blog() {
 
   return (
     <div>
-      <h2 className="w-full text-center sr-only">Blog</h2>
+      <h2 className="text-sm sr-only">Blog</h2>
       {posts.length === 0 && <p>hier is noch nix :(</p>}
       <div className="flex flex-col gap-4 mt-8">
         {posts.map((post, index) => (
