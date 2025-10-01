@@ -22,7 +22,7 @@ const EVENTS_QUERY = defineQuery(`
 
 export type QueriedEvent = Pick<
   Event,
-  "title" | "slug" | "image" | "date" | "ellipsis"
+  "title" | "slug" | "image" | "date" | "ellipsis" | "_createdAt"
 >;
 
 export default async function Events() {
