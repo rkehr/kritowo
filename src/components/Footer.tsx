@@ -3,11 +3,11 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <div className="px-8 py-2 opacity-15 flex items-center text-sm ">
-      <Copyleft className="inline" />
-      2025 | no cookies, no gods, no masters
-      <Link href="/imprint">Imressum</Link>
-      <Link href="/data-protection-agreement">Datenschutzerklärung</Link>
+    <div className="px-8 py-2 flex items-center text-sm gap-2">
+      <Copyleft className="inline opacity-20" />
+      <span className="opacity-20">2025 | no cookies, no gods, no masters</span>
+      <Link href="/imprint"> Impressum </Link>
+      <Link href="/data-protection-agreement"> Datenschutzerklärung</Link>
     </div>
   );
 }
