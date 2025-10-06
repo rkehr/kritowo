@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Menu from "@/components/Menu";
+import Head from "next/head";
 
 const faustina = Faustina({
   subsets: ["latin"],
