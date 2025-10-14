@@ -58,10 +58,6 @@ export default async function PostPage({ params }: PostPageProps) {
       {post.content?.map((block, index) => (
         <PortableText key={index} value={block} />
       ))}
-
-      <p className="text-sm text-muted">
-        Published on: {new Date(post._createdAt).toLocaleDateString()}
-      </p>
     </div>
   );
 }
