@@ -1,6 +1,6 @@
 import EventPreview from "@/components/EventPreview";
 import { client } from "@/sanity/lib/client";
-import { Event } from "@/sanity/sanity.types";
+import { Event, Format } from "@/sanity/sanity.types";
 import { format } from "date-fns";
 import { formatInTimeZone } from "date-fns-tz";
 import { de } from "date-fns/locale";
@@ -21,12 +21,18 @@ const EVENTS_QUERY = defineQuery(`
   image,
   ellipsis,
   date,
+  format[]->{ title },
+  location[]->{...},
 }|order(date asc)`);
 
-export type QueriedEvent = Pick<
-  Event,
-  "title" | "slug" | "image" | "date" | "ellipsis" | "_createdAt"
->;
+// export type QueriedEvent = Pick<
+//   Event,
+//   "title" | "slug" | "image" | "date" | "ellipsis" | "_createdAt"
+// >;
+export type QueriedEvent = Omit<Event, "location" | "format"> & {
+  format: Format[];
+  location: Location;
+};
 
 export default async function Events() {
   const posts = await client.fetch<QueriedEvent[]>(EVENTS_QUERY);

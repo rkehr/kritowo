@@ -22,7 +22,7 @@ export default function Menu(props: MenuProps) {
         return (
           <Link
             key={index}
-            className={`hover-glow opacity-80 hover:opacity-100 transition ${
+            className={`hover-glow text-inherit opacity-80 hover:opacity-100 transition ${
               isActive ? "underline glow opacity-100" : ""
             }`}
             href={href}

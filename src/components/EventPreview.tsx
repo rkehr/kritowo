@@ -2,7 +2,6 @@ import { QueriedEvent } from "@/app/events/page";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/lib/client";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import { format } from "date-fns";
 import Link from "next/link";
 import { de } from "date-fns/locale";
 import { formatInTimeZone } from "date-fns-tz";
@@ -13,6 +12,7 @@ interface EventPreviewProps {
 
 export default function EventPreview(props: EventPreviewProps) {
   const { event } = props;
+  console.log(event);
   return (
     <Link href={`/events/${event.slug?.current}`} className="block w-full">
       <div>
@@ -33,6 +33,9 @@ export default function EventPreview(props: EventPreviewProps) {
             </span>
             <h3 className="break-words inline hyphens-auto">{event.title}</h3>
             <div className="clear-both" />
+          </div>
+          <div className="flex justify-between pb-4">
+            <span>{event?.format?.map(({ title }) => title).join(" | ")} </span>
           </div>
         </div>
         <div className="">

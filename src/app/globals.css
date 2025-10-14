@@ -58,7 +58,8 @@
   --foreground: #6f6f6f;
   --foreground-transparent: oklch(var(--foreground) / 0.5);
 
-  --primary: #f1efbc;
+  --primary: #e8ffa5;
+
   --primary-foreground: #325e61;
   --radius: 0.625rem;
   --card: oklch(1 0 0);
@@ -168,16 +169,19 @@
       var(--foreground-transparent) 0 0 5px;
   }
   h1 {
-    font-size: 4.5rem;
+    font-size: 2.5rem;
   }
   h2 {
-    font-size: 3.25rem;
+    font-size: 2rem;
   }
   h3,
   h4,
   h5,
   h6 {
     font-size: 1.75rem;
+  }
+  a {
+    @apply text-primary-foreground hover:underline;
   }
 }
 

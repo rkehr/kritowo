@@ -30,7 +30,6 @@ export default async function Home() {
 
   return (
     <div className="space-y-4 p-8">
-      <h1 className="text-4xl font-heading">{textBlock.title}</h1>
       <div className="prose">
         {textBlock.content?.map((block, index) => (
           <PortableText key={index} value={block} />

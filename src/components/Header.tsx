@@ -39,8 +39,11 @@ export default function Header() {
                 <MenuIcon className="h-6 w-6" />
               </Button>
             </SheetTrigger>
-            <SheetTitle className="text-sm sr-only">Navigation</SheetTitle>
-            <SheetContent side="right" className="w-72 sm:w-80 max-w-[80vw]">
+            <SheetContent
+              side="right"
+              className="w-72 sm:w-80 max-w-[80vw] bg-primary"
+            >
+              <SheetTitle className="text-sm sr-only">Navigation</SheetTitle>
               <Menu showOnMobile={true} />
             </SheetContent>
           </Sheet>
