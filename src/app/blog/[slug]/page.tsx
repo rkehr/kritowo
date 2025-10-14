@@ -42,7 +42,7 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 content">
       <h1 className="text-4xl font-heading">{post.title}</h1>
 
       {post.image && (

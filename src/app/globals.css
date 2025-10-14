@@ -180,7 +180,7 @@
   h6 {
     font-size: 1.75rem;
   }
-  a {
+  .content a {
     @apply text-primary-foreground hover:underline;
   }
 }

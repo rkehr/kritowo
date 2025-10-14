@@ -6,11 +6,7 @@ export default function Logo() {
   const pathname = usePathname();
 
   return (
-    <Link
-      href="/"
-      aria-label="Home"
-      className="relative text-inherit decoration-none no-underline"
-    >
+    <Link href="/" aria-label="Home" className="relative ">
       <h1 className="font-black text-underline transition-all duration-600 uppercase whitespace-pre backdrop-blur-lg italic text-2xl">
         {`
     Kritische

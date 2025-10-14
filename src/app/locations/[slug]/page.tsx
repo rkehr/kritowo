@@ -50,7 +50,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
   const { image, title, content, coordinates } = location;
 
   return (
-    <div className="space-y-4 w-full">
+    <div className="space-y-4 content w-full">
       {image && (
         <img
           src={urlFor(image).url()}

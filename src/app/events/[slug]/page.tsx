@@ -55,7 +55,7 @@ export default async function EventPage({ params }: EventPageProps) {
   }
 
   return (
-    <div className="space-y-4 flex flex-col gap-4">
+    <div className="space-y-4 content flex flex-col gap-4">
       <h1 className="text-4xl font-heading">{event.title}</h1>
       <div className="flex justify-between items-baseline">
         <div className="text-3xl font-bold text-primary-foreground font-[coiny]">
