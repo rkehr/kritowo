@@ -2,7 +2,7 @@ import { QueriedLocation } from "@/app/locations/page";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/lib/client";
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { SanityImageSource } from "@sanity/image-url";
 import { format } from "date-fns";
 import Link from "next/link";
 import MapWrapper from "./MapWrapper";

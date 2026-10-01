@@ -1,7 +1,7 @@
 import { QueriedEvent } from "@/app/events/page";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/lib/client";
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { SanityImageSource } from "@sanity/image-url";
 import Link from "next/link";
 import { de } from "date-fns/locale";
 import { formatInTimeZone } from "date-fns-tz";
