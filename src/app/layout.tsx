@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Doto, Luxurious_Roman, Faustina, Coiny } from "next/font/google";
+import { Luxurious_Roman, Faustina, Coiny } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Menu from "@/components/Menu";
-import Head from "next/head";
 
 const faustina = Faustina({
   subsets: ["latin"],
