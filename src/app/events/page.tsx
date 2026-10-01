@@ -63,13 +63,13 @@ export default async function Events() {
                   <div
                     className={`text-3xl font-bold ${
                       index === 0 ? "mt-4" : "mt-12"
-                    } text-primary-foreground font-[coiny]`}
+                    } glow text-primary-foreground font-didact`}
                     key={index}
                   >
                     {dateString}
                   </div>
                   {"\n"}
-                  <div className="text-lg font-bold text-primary-foreground font-[coiny]">
+                  <div className="text-lg font-bold glow text-primary-foreground font-didact">
                     {formatInTimeZone(event.date, "Europe/Berlin", "EEEE", {
                       locale: de,
                     })}

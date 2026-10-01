@@ -12,7 +12,9 @@ export default function Menu(props: MenuProps) {
     <div
       className={`gap-8 sticky justify-between items-baseline 
       p-4 md:relative md:p-0 transition-all duration-600 flex-col md:flex-row ${
-        showOnMobile ? "flex md:hidden" : "hidden md:flex"
+        showOnMobile
+          ? "flex md:hidden text-background"
+          : "hidden md:flex text-primary-foreground"
       }`}
     >
       {links.map(({ href, text }, index) => {
@@ -22,9 +24,7 @@ export default function Menu(props: MenuProps) {
         return (
           <Link
             key={index}
-            className={`hover-glow opacity-80 hover:opacity-100 transition ${
-              isActive ? "underline glow opacity-100" : ""
-            }`}
+            className={`hover-glow opacity-80 hover:opacity-100 transition  ${isActive ? "underline glow opacity-100" : ""}`}
             href={href}
           >
             {text}

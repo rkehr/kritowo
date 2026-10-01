@@ -42,10 +42,10 @@ export default async function Locations() {
   return (
     <div>
       <h2 className="text-sm sr-only hyphens-auto">Veranstaltungsorte</h2>
-      <div className="flex flex-col gap-4 mt-8">
+      <div className="flex flex-col gap-16 mt-8">
         {posts.length === 0 && <p>No locations found.</p>}
         {posts.map((location, index) => (
-          <LocationPreview key={index} location={location} />
+          <LocationPreview key={index} location={location} showMap={false} />
         ))}
       </div>
     </div>

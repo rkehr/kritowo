@@ -36,8 +36,9 @@ type JoinedEvent = Omit<Event, "location" | "format" | "language"> & {
 export async function generateMetadata({
   params,
 }: EventPageProps): Promise<Metadata> {
+  const { slug } = await params;
   const event = await client.fetch<JoinedEvent | null>(EVENT_QUERY, {
-    slug: params.slug,
+    slug,
   });
   return {
     title: event?.title ?? "Event",
@@ -47,6 +48,7 @@ export async function generateMetadata({
 
 export default async function EventPage({ params }: EventPageProps) {
   const { slug } = await params;
+  console.log(slug);
 
   const event = await client.fetch<JoinedEvent | null>(EVENT_QUERY, { slug });
 
@@ -58,7 +60,7 @@ export default async function EventPage({ params }: EventPageProps) {
     <div className="space-y-4 content flex flex-col gap-4">
       <h1 className="text-4xl font-heading">{event.title}</h1>
       <div className="flex justify-between items-baseline">
-        <div className="text-3xl font-bold text-primary-foreground font-[coiny]">
+        <div className="text-3xl font-bold glow text-primary-foreground font-didact">
           {event.date &&
             formatInTimeZone(event.date, "Europe/Berlin", "dd.MM.yyyy HH:mm")}
         </div>

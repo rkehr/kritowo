@@ -25,7 +25,7 @@ export default function EventPreview(props: EventPreviewProps) {
         )}
         <div>
           <div className="mb-2 w-full">
-            <span className="float-right mx-4 text-2xl font-bold text-primary-foreground font-[coiny] relative top-0.75">
+            <span className="float-right mx-4 text-2xl font-bold text-primary-foreground font-didact relative top-0.75">
               {event.date &&
                 formatInTimeZone(event.date, "Europe/Berlin", "HH:mm", {
                   locale: de,
@@ -34,7 +34,7 @@ export default function EventPreview(props: EventPreviewProps) {
             <h3 className="break-words inline hyphens-auto">{event.title}</h3>
             <div className="clear-both" />
           </div>
-          <div className="flex justify-between pb-4">
+          <div className="flex justify-between pb-4 text-muted-foreground">
             <span>{event?.format?.map(({ title }) => title).join(" | ")} </span>
           </div>
         </div>

@@ -28,8 +28,9 @@ const LOCATION_QUERY = defineQuery(`
 export async function generateMetadata({
   params,
 }: LocationPageProps): Promise<Metadata> {
+  const { slug } = await params;
   const location = await client.fetch<Location | null>(LOCATION_QUERY, {
-    slug: params.slug,
+    slug,
   });
   return {
     title: location?.title ?? "Veranstaltungsort",
@@ -38,7 +39,7 @@ export async function generateMetadata({
 }
 
 export default async function LocationPage({ params }: LocationPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
 
   const location = await client.fetch<Location | null>(LOCATION_QUERY, {
     slug,

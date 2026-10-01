@@ -24,8 +24,9 @@ const POST_QUERY = defineQuery(`
 export async function generateMetadata({
   params,
 }: PostPageProps): Promise<Metadata> {
+  const { slug } = await params;
   const post = await client.fetch<Post | null>(POST_QUERY, {
-    slug: params.slug,
+    slug,
   });
   return {
     title: post?.title ?? "Blog Post",
@@ -34,7 +35,7 @@ export async function generateMetadata({
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
   const post = await client.fetch<Post | null>(POST_QUERY, { slug });
 
   if (!post) {

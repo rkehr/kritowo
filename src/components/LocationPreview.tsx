@@ -18,7 +18,7 @@ export default function LocationPreview(props: LocationPreviewProps) {
     location;
   return (
     <Link href={`/locations/${slug?.current}`} className="block">
-      <Card>
+      <Card className="border-0">
         {image && (
           <img
             src={urlFor(image).width(1200).height(300).url()}
@@ -26,14 +26,16 @@ export default function LocationPreview(props: LocationPreviewProps) {
             className="w-full rounded-lg"
           />
         )}
-        <CardHeader>
-          <h3>{title}</h3>
-        </CardHeader>
-        <CardContent>
-          {street} {nr}
-          <br />
-          {postcode} {city}
-        </CardContent>
+        <div className="flex flex-row flex-wrap justify-between items-center p-6">
+          <CardHeader className="p-0 glow">
+            <h3>{title}</h3>
+          </CardHeader>
+          <CardContent className="p-0 text-muted-foreground">
+            {street} {nr}
+            <br />
+            {postcode} {city}
+          </CardContent>
+        </div>
         {coordinates && showMap && (
           <MapWrapper position={coordinates} height={200} />
         )}

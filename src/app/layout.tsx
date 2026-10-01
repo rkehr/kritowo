@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Luxurious_Roman, Faustina, Coiny } from "next/font/google";
+import { Luxurious_Roman, Faustina, Didact_Gothic } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -11,16 +11,16 @@ const faustina = Faustina({
   display: "swap",
 });
 
-const luxuriousRoman = Luxurious_Roman({
+const didactGothic = Didact_Gothic({
   subsets: ["latin"],
-  variable: "--font-luxurious-roman",
   weight: ["400"],
+  variable: "--font-didact-gothic",
   display: "swap",
 });
 
-const coiny = Coiny({
+const luxuriousRoman = Luxurious_Roman({
   subsets: ["latin"],
-  variable: "--font-coiny",
+  variable: "--font-luxurious-roman",
   weight: ["400"],
   display: "swap",
 });
@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${luxuriousRoman.variable} ${coiny.variable} ${faustina.variable} antialiased `}
+      className={`${luxuriousRoman.variable} ${didactGothic.variable} ${faustina.variable} antialiased `}
     >
       <body className="font-body bg-background text-foreground flex flex-col justify-stretch h-screen overflow-auto relative w-screen overflow-x-hidden">
         <Header />
