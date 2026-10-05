@@ -64,7 +64,7 @@ export default async function EventPage({ params }: EventPageProps) {
           {event.date &&
             formatInTimeZone(event.date, "Europe/Berlin", "dd.MM.yyyy HH:mm")}
         </div>
-        <div className="">
+        <div className="text-muted-foreground">
           {event.format?.map((format) => format.title).join(" | ")}
         </div>
       </div>

@@ -1,7 +1,6 @@
 import EventPreview from "@/components/EventPreview";
 import { client } from "@/sanity/lib/client";
 import { Event, Format } from "@/sanity/sanity.types";
-import { format } from "date-fns";
 import { formatInTimeZone } from "date-fns-tz";
 import { de } from "date-fns/locale";
 import { Metadata } from "next";
@@ -17,6 +16,7 @@ export const metadata: Metadata = {
 const EVENTS_QUERY = defineQuery(`
 *[_type == "event"]{
   title,
+  organisation,
   slug,
   image,
   ellipsis,
